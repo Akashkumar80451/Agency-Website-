@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-   background-color: #A3CEA30F;
+   background-color: #0000000f;
    margin-bottom: 20px;
   }
   .marquee-tracks:hover {
@@ -76,7 +76,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-     background-color: #A3CEA30F;
+     background-color: #0000000f;
    
   }
   .marquee-track:hover {
