@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<title>Web Design and Development Agency in Nagercoil | Your Agency Name</title>
+<meta name="description" content="Leading web design and development agency in Nagercoil. We build fast, modern, and conversion-focused websites that help businesses grow online.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="favicon" href="favicon.avif">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="Style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&family=Sora:wght@700;800;900&display=swap" rel="stylesheet">
+  <body oncontextmenu="return false;"> 
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2ac050;
+      --bg: #0a0a0a;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e8e8;
+      --muted: rgba(255,255,255,0.42);
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth !important;
+     
+    }
+
+    /* noise grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.5;
+    }
+
+    /* ════════════════════════════════
+       NAV — same pill on ALL screens
+    ════════════════════════════════ */
+    /* ─── NAV wrapper ─── */
+    .nav-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(16,16,16,0.90);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 10px 8px 12px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      animation: fadeDown 0.6s ease both;
+      width: max-content;
+      max-width: calc(100vw - 32px);
+    }
+
+    .nav-logo {
+      width: 28px; height: 28px;
+      background: var(--green);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      flex-shrink: 0;
+    }
+    .nav-logo svg { width: 14px; height: 14px; }
+
+    .nav-links {
+      display: flex; gap: 20px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 13px; font-weight: 400;
+      transition: color 0.2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--green); color: #000;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 13px;
+      border: none; border-radius: 999px;
+      padding: 8px 16px; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-cta:hover { background: #5aff88; transform: scale(1.04); }
+
+    /* on very small screens collapse nav links, keep logo + cta */
+    @media (max-width: 480px) {
+      nav { gap: 15px; padding: 10px 15px; }
+      .nav-cta { font-size: 12px; padding: 7px 14px; }
+      .nav-wrapper { padding: 14px 12px 0; }
+    }
+
+    /* ════════════════════════════════
+       HERO
+    ════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 20px 80px;
+      text-align: center; z-index: 1;
+      overflow: hidden;
+    }
+
+    /* ── H1 ── */
+    .hero-headline {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: clamp(28px, 5.5vw + 0.5rem, 78px);
+      line-height: 1.06;
+      color: var(--green);
+      max-width: min(1300px, 94vw);
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .hero-sub {
+      margin-top: 22px;
+      font-size: clamp(14px, 1vw + 0.4rem, 18px);
+      color: var(--muted); line-height: 1.7;
+      max-width: min(960px, 88vw);
+      font-weight: 300;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    /* ════════════════════════════════
+       ANIMATED GLOW ORBS (replaces button)
+    ════════════════════════════════ */
+    .hero-glow {
+      margin-top: 48px;
+      animation: fadeUp 0.8s 0.45s ease both;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .glow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59,255,108,0.07);
+      border: 1px solid rgba(59,255,108,0.18);
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.01em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow-pill::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(from var(--angle, 0deg), transparent 20%, rgba(59,255,108,0.4) 40%, transparent 60%);
+      animation: spin-border 3s linear infinite;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 1px;
+    }
+
+    @property --angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes spin-border {
+      to { --angle: 360deg; }
+    }
+
+    .glow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green), 0 0 16px rgba(59,255,108,0.5);
+      animation: pulse-dot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px var(--green), 0 0 16px rgba(59,255,108,0.5); }
+      50% { opacity: 0.6; transform: scale(0.85); box-shadow: 0 0 4px var(--green), 0 0 8px rgba(59,255,108,0.3); }
+    }
+
+    /* big ambient glow under headline */
+    .hero-glow-bg {
+      position: absolute;
+      bottom: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: min(600px, 80vw);
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(59,255,108,0.12) 0%, transparent 70%);
+      filter: blur(20px);
+      pointer-events: none;
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+    }
+
+    /* ════════════════════════════════
+       TRUST BAR
+    ════════════════════════════════ */
+    .trust-section {
+      margin-top: 64px;
+      animation: fadeUp 0.8s 0.6s ease both;
+      width: 100%; max-width: 900px;
+    }
+    .trust-label {
+      font-size: 11.5px; color: var(--muted);
+      letter-spacing: 0.04em; margin-bottom: 22px;
+    }
+    .trust-logos {
+      overflow: hidden; position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .logos-track {
+      display: flex; align-items: center; gap: 40px;
+      animation: scroll-logos 10000ms linear infinite;
+      white-space: nowrap;
+    }
+    .logos-track:hover { animation-play-state: start; }
+
+    @keyframes scroll-logos {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .logo-item {
+      display: inline-flex; align-items: center;
+      gap: 8px; color: rgba(255,255,255,0.30);
+      font-size: 13.5px; font-weight: 500;
+      flex-shrink: 0; transition: color 0.2s; cursor: default;
+      letter-spacing: -0.01em;
+    }
+    .logo-item:hover { color: rgba(255,255,255,0.60); }
+
+    .logo-icon {
+      width: 20px; height: 20px;
+      border-radius: 5px;
+      display: grid; place-items: center;
+      font-size: 10px; font-weight: 700; flex-shrink: 0;
+    }
+    .logo-sep {
+      width: 3px; height: 3px; border-radius: 50%;
+      background: rgba(255,255,255,0.10); flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════
+       KEYFRAMES
+    ════════════════════════════════ */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE POLISH
+    ════════════════════════════════ */
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 64px; min-height: 70vh;}
+      .hero-headline { font-size: clamp(26px, 7vw, 52px); }
+      .hero-glow { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 36px 16px 88px; min-height: 70vh; }
+      .hero-headline { font-size: 30px; letter-spacing: -0.01em; padding-top: 40px;}
+      .hero-sub { font-size: 12px; margin-top: 16px; }
+      .hero-glow { margin-top: 32px; gap: 8px; }
+      .glow-pill { font-size: 12px; padding: 8px 14px; }
+      .trust-section { margin-top: 36px; }
+      
+
+    }
+
+    @media (max-width: 360px) {
+      .hero { padding: 36px 16px 88px; min-height: 80vh; }
+      .hero-headline { font-size: 26px; font-weight: 800; }
+      .glow-pill { font-size: 11px; padding: 7px 12px; }
+      .trust-section {
+      margin-top: 64px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s 0.6s ease both;
+      width: 100%; max-width: 900px;
+    }
+    
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV (static, not fixed) ── -->
+  <div class="nav-wrapper">
+  <nav>
+    <div class="nav-logo">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+        <rect x="9" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+        <rect x="2" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+        <rect x="9" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+      </svg>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#web-design-services">Services</a></li>
+      <li><a href="#">Case Studies</a></li>
+    </ul>
+    <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank" class="nav-cta" style="text-decoration: none;">Book a call</a>
+  </nav>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+
+    <h1 class="hero-headline">We build websites that turn visitors into paying customers.</h1>
+
+    <p class="hero-sub">High-converting websites designed with strategic copy and seamless development to attract ready-to-buy customers—helping brands worldwide turn visitors into loyal clients and drive growth.</p>
+
+    <div class="hero-glow">
+      <a style="text-decoration: none;" href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank"  class="glow-pill">
+        <span class="glow-dot"></span>
+        Book Free Intro Call
+      </a>
+      <div class="glow-pill">
+        <span class="glow-dot" style="background:#5bc8ff;box-shadow:0 0 8px #5bc8ff,0 0 16px rgba(91,200,255,0.4)"></span>
+        View Case Studies
+      </div>
+    </div>
+    <div class="hero-glow-bg"></div>
+
+    <!-- ── TRUST BAR ── -->
+    <div class="trust-section">
+      <p class="trust-label">Trusted by 30+ agencies, startups, and consultants worldwide</p>
+      <div class="trust-logos">
+        <div class="logos-track">
+          <!-- Set 1 — real world agencies & companies -->
+          <span class="logo-item"><span class="logo-icon" style="background:#0d1f10;color:#3bff6c">S</span>Shopify</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#12102a;color:#9b8cff">W</span>Wunderman Thompson</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1e0e08;color:#ff9f50">H</span>HubSpot</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#0a1820;color:#5bc8ff">O</span>Ogilvy</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1a180e;color:#f0dc50">M</span>Mailchimp</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1a0a1a;color:#f06aff">R</span>R/GA</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#0a1520;color:#40cfff">S</span>Stripe</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1a0e0e;color:#ff6b6b">W</span>WCRS</span>
+          <span class="logo-sep"></span>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <span class="logo-item"><span class="logo-icon" style="background:#0d1f10;color:#3bff6c">S</span>Shopify</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#12102a;color:#9b8cff">W</span>Wunderman Thompson</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1e0e08;color:#ff9f50">H</span>HubSpot</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#0a1820;color:#5bc8ff">O</span>Ogilvy</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1a180e;color:#f0dc50">M</span>Mailchimp</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1a0a1a;color:#f06aff">R</span>R/GA</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#0a1520;color:#40cfff">S</span>Stripe</span>
+          <span class="logo-sep"></span>
+          <span class="logo-item"><span class="logo-icon" style="background:#1a0e0e;color:#ff6b6b">W</span>WCRS</span>
+          <span class="logo-sep"></span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <div class="marquee-wrappers">
+      <div class="marquee-tracks">
+    
+        <!-- ORIGINAL -->
+        <div class="marquee-items">
+          <img src="img1.png" alt="">
+        </div>
+        <div class="marquee-items">
+          <img src="img2.png" alt="">
+        </div>
+        <div class="marquee-items">
+          <img src="img3.png" alt="">
+        </div>
+        <div class="marquee-items">
+          <img src="img4.png" alt="">
+        </div>
+        <div class="marquee-items">
+          <img src="img5.png" alt="">
+        </div>
+    
+    
+      </div>
+    </div>
+    
+
+
+
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+    
+        <!-- ORIGINAL -->
+        <div class="marquee-item">
+          <img src="img6.png" alt="">
+        </div>
+        <div class="marquee-item">
+          <img src="img7.png" alt="">
+        </div>
+        <div class="marquee-item">
+          <img src="img8.png" alt="">
+        </div>
+        <div class="marquee-item">
+          <img src="img9.png" alt="">
+        </div>
+        <div class="marquee-item">
+          <img src="img10.png" alt="">
+        </div>
+      
+    
+      </div>
+    </div>
+  <!-- ════════════════════════════════
+       SERVICES SECTION
+  ════════════════════════════════ -->
+  <section id="web-design-services" class="services">
+    <div class="services-inner">
+
+      <div class="services-header">
+        <span class="services-eyebrow">WHAT WE DO</span>
+        <h2 class="services-title">Services built for<br>real business results</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Card 1 -->
+        <div class="svc-card ">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Custom Website Development</h3>
+          <p class="svc-desc">Tailor-made sites from scratch with React, Next.js, or WordPress. Designed to perform, engineered to scale.</p>
+        </div>
+
+        <!-- Card 2 — featured -->
+        <div class="svc-card svc-featured">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Responsive Web Design</h3>
+          <p class="svc-desc">Mobile-first, pixel-perfect interfaces that look stunning on every screen. Your users deserve the best.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">E-Commerce Solutions</h3>
+          <p class="svc-desc">From storefront to checkout — WooCommerce and Shopify stores built to convert browsers into buyers.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">SEO & Performance Optimisation</h3>
+          <p class="svc-desc">Technical SEO, Core Web Vitals, page speed tuning. We make sure Google — and your customers — find you first.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Branding & UI/UX Consulting</h3>
+          <p class="svc-desc">Strategy-led design systems, logo, and identity work. We build brands people remember — and trust.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Maintenance & Support</h3>
+          <p class="svc-desc">Regular updates, security checks, and ongoing technical support so your site stays fast and glitch-free.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* ════════════════════════════════
+       SERVICES SECTION STYLES
+    ════════════════════════════════ */
+    .services {
+      position: relative;
+      z-index: 1;
+      padding: 100px 24px 120px;
+      background: var(--bg);
+    }
+
+    /* subtle top divider line */
+    .services::before {
+      content: '';
+      display: block;
+      width: 100%;
+      max-width: 1100px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+      margin: 0 auto 80px;
+    }
+
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* header */
+    .services-header {
+      margin-bottom: 56px;
+    }
+
+    .services-eyebrow {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .services-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    /* grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /* card base */
+    .svc-card {
+      position: relative;
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 36px 30px 34px;
+      transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    /* top accent line on hover */
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20px; right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(59,255,108,0.5), transparent);
+      border-radius: 0 0 2px 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    /* subtle corner glow */
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(59,255,108,0.06) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .svc-card:hover {
+      border-color: rgba(59,255,108,0.22);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,255,108,0.08);
+    }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-card:hover::after  { opacity: 1; }
+
+    /* featured card — green top border always visible */
+    .svc-featured {
+      border-color: rgba(59,255,108,0.28);
+      background: linear-gradient(160deg, #141a14 0%, #111 60%);
+    }
+    .svc-featured::before {
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 1;
+    }
+    .svc-featured::after { opacity: 1; }
+
+    /* icon */
+    .svc-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid; place-items: center;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.55);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .svc-icon svg { width: 20px; height: 20px; }
+
+    .svc-featured .svc-icon {
+      background: rgba(59,255,108,0.10);
+      border-color: rgba(59,255,108,0.20);
+      color: var(--green);
+    }
+
+    .svc-card:hover .svc-icon {
+      background: rgba(59,255,108,0.08);
+      border-color: rgba(59,255,108,0.18);
+      color: var(--green);
+    }
+
+    /* title */
+    .svc-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    /* desc */
+    .svc-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.68;
+      font-weight: 300;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 580px) {
+      .services { padding: 72px 16px 80px; }
+      .services::before { margin-bottom: 56px; }
+      .services-header { margin-bottom: 36px; }
+      .services-grid { grid-template-columns: 1fr; gap: 12px; }
+      .svc-card { padding: 28px 22px; }
+      .svc-title { font-size: 16px; }
+    }
+
+    /* ════════════════════════════════
+       HOW WE WORK
+    ════════════════════════════════ */
+    .hww { padding: 100px 24px 110px; background: #0d0d0d; position: relative; z-index: 1; }
+    .hww-inner { max-width: 1100px; margin: 0 auto; }
+    .hww-eyebrow { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; color: var(--green); margin-bottom: 16px; }
+    .hww-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 52px); line-height: 1.1; color: #fff; margin-bottom: 56px; }
+    .hww-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .hww-card {
+      background: #111; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 32px 26px 30px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .hww-card:hover { border-color: rgba(59,255,108,0.2); transform: translateY(-4px); }
+    .hww-card.hww-active {
+      border-color: rgba(59,255,108,0.35);
+      background: linear-gradient(160deg, #141a14 0%, #111 70%);
+    }
+    .hww-num {
+      font-family: 'Poppins', sans-serif; font-weight: 900;
+      font-size: 72px; line-height: 1; color: rgba(255,255,255,0.06);
+      margin-bottom: 16px; letter-spacing: -2px;
+    }
+    .hww-active .hww-num { color: rgba(59,255,108,0.12); }
+    .hww-card h3 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+    .hww-card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .hww-connector {
+      position: absolute; bottom: 50%; right: -7px;
+      width: 14px; height: 2px;
+      background: rgba(59,255,108,0.25);
+      display: none;
+    }
+
+    @media (max-width: 900px) { .hww-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) {
+      .hww { padding: 72px 16px 80px; }
+      .hww-grid { grid-template-columns: 1fr; gap: 12px; }
+      .hww-num { font-size: 56px; }
+    }
+
+    /* ════════════════════════════════
+       WHY CHOOSE US
+    ════════════════════════════════ */
+    .why { padding: 100px 24px 110px; background: var(--bg); position: relative; z-index: 1; }
+    .why-inner { max-width: 1100px; margin: 0 auto; }
+    .why-eyebrow { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; color: var(--green); margin-bottom: 16px; }
+    .why-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 52px); line-height: 1.1; color: #fff; margin-bottom: 52px; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 14px; }
+
+    .why-card {
+      border-radius: 20px; padding: 36px 30px;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.3s;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+
+    /* card colour variants */
+    .why-dark  { background: #161616; border: 1px solid rgba(255,255,255,0.07); grid-column: span 1; }
+    .why-green { background: var(--green); grid-column: span 1; }
+    .why-plain { background: #111; border: 1px solid rgba(255,255,255,0.07); grid-column: span 1; }
+    .why-orange { background: #e84c1e; grid-column: span 1; }
+    .why-wide  { background: #111; border: 1px solid rgba(255,255,255,0.07); grid-column: span 2; }
+    .why-navy  { background: #141620; border: 1px solid rgba(255,255,255,0.07); grid-column: span 1; }
+
+    .why-stat {
+      font-family: 'Poppins', sans-serif; font-weight: 900;
+      font-size: clamp(40px, 5vw, 64px); line-height: 1;
+      margin-bottom: 8px; letter-spacing: -1px;
+    }
+    .why-dark .why-stat, .why-plain .why-stat, .why-wide .why-stat, .why-navy .why-stat { color: #fff; }
+    .why-green .why-stat { color: #000; }
+    .why-orange .why-stat { color: #fff; }
+
+    .why-card-title {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 16px; margin-bottom: 10px; line-height: 1.3;
+    }
+    .why-dark .why-card-title, .why-plain .why-card-title,
+    .why-wide .why-card-title, .why-navy .why-card-title { color: #fff; }
+    .why-green .why-card-title { color: #000; }
+    .why-orange .why-card-title { color: #fff; }
+
+    .why-card-desc { font-size: 13.5px; line-height: 1.65; font-weight: 300; }
+    .why-dark .why-card-desc, .why-plain .why-card-desc,
+    .why-wide .why-card-desc, .why-navy .why-card-desc { color: var(--muted); }
+    .why-green .why-card-desc { color: rgba(0,0,0,0.65); }
+    .why-orange .why-card-desc { color: rgba(255,255,255,0.75); }
+
+    @media (max-width: 860px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-wide { grid-column: span 2; }
+    }
+    @media (max-width: 520px) {
+      .why { padding: 72px 16px 80px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-wide, .why-orange, .why-navy { grid-column: span 1; }
+
+    }
+
+    /* ════════════════════════════════
+       PRICING
+    ════════════════════════════════ */
+    .pricing { padding: 100px 24px 110px; background: #0d0d0d; position: relative; z-index: 1; }
+    .pricing-inner { max-width: 1100px; margin: 0 auto; }
+    .pricing-eyebrow { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; color: var(--green); margin-bottom: 16px; }
+    .pricing-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 52px); line-height: 1.1; color: #fff; margin-bottom: 36px; }
+
+    /* toggle */
+    .pricing-toggle { display: flex; gap: 6px; margin-bottom: 52px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; padding: 5px; width: fit-content; }
+    .toggle-btn { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; border: none; border-radius: 999px; padding: 9px 22px; cursor: pointer; transition: background 0.2s, color 0.2s; background: transparent; color: var(--muted); }
+    .toggle-btn.active { background: #fff; color: #000; font-weight: 600; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+
+    .price-card {
+      background: #111; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px; padding: 36px 30px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .price-card:hover { border-color: rgba(59,255,108,0.2); transform: translateY(-4px); }
+
+    .price-card.price-featured {
+      background: #161616;
+      border-color: rgba(59,255,108,0.3);
+    }
+    .price-badge {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--green); color: #000;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      padding: 5px 16px; border-radius: 0 0 10px 10px;
+    }
+    .price-tier { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--green); margin-bottom: 16px; }
+    .price-amount { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: clamp(36px, 4vw, 52px); color: #fff; line-height: 1; margin-bottom: 6px; letter-spacing: -1px; }
+    .price-amount span { font-size: 0.55em; vertical-align: super; font-weight: 700; }
+    .price-custom { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: clamp(36px, 4vw, 52px); color: #fff; line-height: 1; margin-bottom: 6px; }
+    .price-note { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+    .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 300; }
+    .price-features li::before { content: '✓'; color: var(--green); font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    .price-btn {
+      display: block; width: 100%; text-align: center;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px;
+      padding: 14px 20px; border-radius: 12px; cursor: pointer;
+      transition: all 0.2s; text-decoration: none; border: none;
+    }
+    .price-btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #fff; }
+    .price-btn-ghost:hover { border-color: rgba(59,255,108,0.4); color: var(--green); }
+    .price-btn-solid { background: var(--green); color: #000; }
+    .price-btn-solid:hover { background: #5aff88; transform: translateY(-1px); }
+
+    @media (max-width: 860px) { .pricing-grid { grid-template-columns: 1fr; max-width: 460px; } }
+    @media (max-width: 520px) { .pricing { padding: 72px 16px 80px; } }
+
+    /* ════════════════════════════════
+       FAQ
+    ════════════════════════════════ */
+    .faq { padding: 100px 24px 110px; background: var(--bg); position: relative; z-index: 1; }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-eyebrow { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; color: var(--green); margin-bottom: 16px; }
+    .faq-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 52px); line-height: 1.1; color: #fff; margin-bottom: 52px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .faq-item {
+      background: #111; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .faq-item.open { border-color: rgba(59,255,108,0.2); }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 20px 22px; background: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      color: rgba(255,255,255,0.85); text-align: left; line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: #fff; }
+    .faq-item.open .faq-q { color: #fff; }
+    .faq-chevron {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      display: grid; place-items: center; transition: background 0.2s, transform 0.3s;
+    }
+    .faq-chevron svg { width: 12px; height: 12px; stroke: var(--muted); transition: stroke 0.2s; }
+    .faq-item.open .faq-chevron { background: rgba(59,255,108,0.1); border-color: rgba(59,255,108,0.2); transform: rotate(180deg); }
+    .faq-item.open .faq-chevron svg { stroke: var(--green); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a p { padding: 0 22px 20px; font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    @media (max-width: 700px) {
+      .faq { padding: 72px 16px 80px; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════
+       CALENDAR CTA
+    ════════════════════════════════ */
+    .cal-section { padding: 100px 24px 120px; background: #0d0d0d; position: relative; z-index: 1; }
+    .cal-inner { max-width: 1200px; margin: 0 auto; text-align: center;  }
+    .cta-222{
+      border: 1px solid rgb(67, 67, 67);
+      padding-top:60px ;
+      border-radius: 60px;
+     
+    }
+    .cal-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(26px, 4vw, 48px); line-height: 1.1; color: #fff; margin-bottom: 16px;margin-top: 30px; }
+    .cal-sub { font-size: clamp(14px, 1.5vw, 17px); color: var(--muted); line-height: 1.7; max-width: 520px; margin: 0 auto 36px; font-weight: 300; }
+    .cal-btn-wrap { margin-bottom: 60px; }
+    .cal-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green); color: #000;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px;
+      border: none; border-radius: 999px; padding: 14px 30px; cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(59,255,108,0);
+    }
+    .cal-btn:hover { background: #148735; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(59,255,108,0.25); }
+
+    /* calendar widget mockup */
+    
+
+    @media (max-width: 860px) {
+      .cal-widget { grid-template-columns: 1fr; }
+      .cal-profile { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .cal-calendar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    }
+    @media (max-width: 520px) {
+      .cal-section { padding: 72px 16px 80px; }
+      .cta-222{
+      border: 1px solid rgb(67, 67, 67);
+      padding:40px 14px 0px 14px ;
+      border-radius: 20px;
+      
+    }
+   
+    .cal-section { padding: 20px 14px 20px; background: #0d0d0d; position: relative; z-index: 1; }
+    }
+    @media (max-width: 370px){
+      .cal-inline-container{
+        margin-top: 0px;
+      }
+    }
+  </style>
+
+  <!-- ════ HOW WE WORK ════ -->
+  <section class="hww">
+    <div class="hww-inner">
+      <span class="hww-eyebrow">HOW WE WORK</span>
+      <h2 class="hww-title">From first call to<br>full launch</h2>
+      <div class="hww-grid">
+        <div class="hww-card">
+          <div class="hww-num">01</div>
+          <h3>Discover & Strategise</h3>
+          <p>We dive deep into your brand, goals, and audience to craft a clear digital roadmap tailored to your needs.</p>
+        </div>
+        <div class="hww-card hww-active">
+          <div class="hww-num">02</div>
+          <h3>Design & Prototype</h3>
+          <p>Wireframes, UI mockups, and interactive prototypes — all reviewed and approved by you before a single line of code is written.</p>
+        </div>
+        <div class="hww-card">
+          <div class="hww-num">03</div>
+          <h3>Build & Test</h3>
+          <p>Our developers bring the approved designs to life with clean, performant code — rigorously tested across devices and browsers.</p>
+        </div>
+        <div class="hww-card">
+          <div class="hww-num">04</div>
+          <h3>Launch & Grow</h3>
+          <p>We handle go-live, monitor performance, gather real-world feedback, and continuously optimise so your site keeps improving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WHY CHOOSE US ════ -->
+  <section class="why">
+    <div class="why-inner">
+      <span class="why-eyebrow">WHY CHOOSE US</span>
+      <h2 class="why-title">The agency that<br>actually delivers</h2>
+      <div class="why-grid">
+        <div class="why-card why-dark">
+          <div class="why-stat">3×</div>
+          <div class="why-card-title">Lightning-Fast Delivery</div>
+          <div class="why-card-desc">We deliver projects 3× faster than traditional agencies — without cutting corners on quality.</div>
+        </div>
+        <div class="why-card why-green">
+          <div class="why-stat">SEO</div>
+          <div class="why-card-title">Built to Rank</div>
+          <div class="why-card-desc">Every site ships with on-page SEO baked in from day one.</div>
+        </div>
+        <div class="why-card why-plain">
+          <div class="why-stat">70%</div>
+          <div class="why-card-title">Proven Revenue Impact</div>
+          <div class="why-card-desc">Our clients have seen up to 70% revenue growth within a year of launch.</div>
+        </div>
+        <div class="why-card why-orange">
+          <div class="why-card-title">Transparent Pricing</div>
+          <div class="why-card-desc">No hidden fees. No tech jargon. Just clear, value-packed proposals.</div>
+        </div>
+        <div class="why-card why-wide">
+          <div class="why-card-title">Full After-Launch Support</div>
+          <div class="why-card-desc">We don't disappear once you go live. Ongoing maintenance, updates, and a direct line to our team — always.</div>
+        </div>
+        
+        <div class="why-card why-wide">
+          <div class="why-card-title">Google Business Profile Optimisation</div>
+          <div class="why-card-desc">We optimize your profile to rank higher, attract more local customers, and convert views into real business — not just exist online.</div>
+        </div>
+        <div class="why-card why-navy">
+          <div class="why-card-title">Scalable & Future-Proof</div>
+          <div class="why-card-desc">Whether you're a two-person startup or an established enterprise, we build for where you're going.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ PRICING ════ -->
+  <section class="pricing">
+    <div class="pricing-inner">
+      <span class="pricing-eyebrow">PRICING</span>
+      <h2 class="pricing-title">Honest pricing.<br>No surprises.</h2>
+      <div class="pricing-toggle">
+        <button class="toggle-btn active" onclick="setPricing('one-time',this)">One-time</button>
+        <button class="toggle-btn" onclick="setPricing('retainer',this)">Monthly Retainer</button>
+      </div>
+      <div class="pricing-grid" id="pricingGrid">
+        <!-- Starter -->
+        <div class="price-card">
+          <div class="price-tier">STARTER</div>
+          <div class="price-amount"><span>₹</span>4,999</div>
+          <div class="price-note">One-time payment</div>
+          <ul class="price-features">
+            <li>Up to 5 pages</li>
+            <li>WordPress / HTML</li>
+            <li>Mobile responsive</li>
+            <li>Basic SEO setup</li>
+            <li>Contact form</li>
+            <li>1 revision round</li>
+            <li>14-day support</li>
+          </ul>
+          <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank" class="price-btn price-btn-ghost">Get started</a>
+        </div>
+        <!-- Growth — featured -->
+        <div class="price-card price-featured">
+          <div class="price-badge">MOST POPULAR</div>
+          <div class="price-tier" style="margin-top:18px">GROWTH</div>
+          <div class="price-amount"><span>₹</span>14,999</div>
+          <div class="price-note">One-time payment</div>
+          <ul class="price-features">
+            <li>Up to 15 pages</li>
+            <li>React / Next.js or WordPress</li>
+            <li>Advanced SEO + schema</li>
+            <li>Google Profile Optimisation</li>
+            <li>Speed optimisation</li>
+            <li>CMS integration</li>
+            <li>3 revision rounds</li>
+            <li>30-day support</li>
+            <li>Google Analytics setup</li>
+          </ul>
+          <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank" class="price-btn price-btn-solid">Get started</a>
+        </div>
+        <!-- Enterprise -->
+        <div class="price-card">
+          <div class="price-tier">ENTERPRISE</div>
+          <div class="price-custom">Custom</div>
+          <div class="price-note">Tailored to your project</div>
+          <ul class="price-features">
+            <li>Unlimited pages</li>
+            <li>Full custom development</li>
+            <li>E-commerce & APIs</li>
+            <li>Priority delivery</li>
+            <li>Dedicated project manager</li>
+            <li>Unlimited revisions</li>
+            <li>90-day support SLA</li>
+            <li>Monthly report</li>
+          </ul>
+          <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank"  class="price-btn price-btn-ghost">Request a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ TESTIMONIALS ════ -->
+  <section class="testi-section">
+    <div class="testi-header">
+      <span class="testi-eyebrow">TESTIMONIALS</span>
+      <h2 class="testi-title">Loved by founders<br>worldwide.</h2>
+    </div>
+
+    <!-- Row 1 — scrolls LEFT -->
+    <div class="testi-row">
+      <div class="testi-track testi-track--left">
+        <!-- original set -->
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#122212;">P</div>
+            <div class="testi-info">
+              <div class="testi-name">Praneeth</div>
+              <div class="testi-role">Founder & CEO, Nexchain AI</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">The team took our vision and turned it into a beautifully crafted, highly functional website. Could not be happier with the result.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0f1a26;">V</div>
+            <div class="testi-info">
+              <div class="testi-name">Varshith Merugu</div>
+              <div class="testi-role">Founder, WassupMediaCo</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">From design to launch the entire process was seamless. Our website now truly reflects our brand's identity and our clients notice it.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#1e1208;">S</div>
+            <div class="testi-info">
+              <div class="testi-name">Suhair Rahman</div>
+              <div class="testi-role">Founder, SpainAcademy</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Transformed our site into a sleek, high-performance platform. Our clients love the new experience and conversion rates improved noticeably.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#13101e;">A</div>
+            <div class="testi-info">
+              <div class="testi-name">Alicia Pohl</div>
+              <div class="testi-role">Founder, AECreatives — Germany</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Helped us kickstart our creative agency with ease. The quality, speed of delivery, and attention to detail genuinely blew us away.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#1a160a;">R</div>
+            <div class="testi-info">
+              <div class="testi-name">Ruby Liza</div>
+              <div class="testi-role">Founder, RLSM</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Our e-commerce platform now runs smoother and faster than ever. Their expertise made a real, measurable difference to our business.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0a1a14;">K</div>
+            <div class="testi-info">
+              <div class="testi-name">Khushi</div>
+              <div class="testi-role">Founder, Khushiva</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Revamped our e-commerce store and sales have never been better. The site is now faster, cleaner and far more user-friendly.</p>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#122212;">P</div>
+            <div class="testi-info">
+              <div class="testi-name">Praneeth</div>
+              <div class="testi-role">Founder & CEO, Nexchain AI</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">The team took our vision and turned it into a beautifully crafted, highly functional website. Could not be happier with the result.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0f1a26;">V</div>
+            <div class="testi-info">
+              <div class="testi-name">Varshith Merugu</div>
+              <div class="testi-role">Founder, WassupMediaCo</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">From design to launch the entire process was seamless. Our website now truly reflects our brand's identity and our clients notice it.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#1e1208;">S</div>
+            <div class="testi-info">
+              <div class="testi-name">Suhair Rahman</div>
+              <div class="testi-role">Founder, SpainAcademy</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Transformed our site into a sleek, high-performance platform. Our clients love the new experience and conversion rates improved noticeably.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#13101e;">A</div>
+            <div class="testi-info">
+              <div class="testi-name">Alicia Pohl</div>
+              <div class="testi-role">Founder, AECreatives — Germany</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Helped us kickstart our creative agency with ease. The quality, speed of delivery, and attention to detail genuinely blew us away.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#1a160a;">R</div>
+            <div class="testi-info">
+              <div class="testi-name">Ruby Liza</div>
+              <div class="testi-role">Founder, RLSM</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Our e-commerce platform now runs smoother and faster than ever. Their expertise made a real, measurable difference to our business.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0a1a14;">K</div>
+            <div class="testi-info">
+              <div class="testi-name">Khushi</div>
+              <div class="testi-role">Founder, Khushiva</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Revamped our e-commerce store and sales have never been better. The site is now faster, cleaner and far more user-friendly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 — scrolls RIGHT -->
+    <div class="testi-row">
+      <div class="testi-track testi-track--right">
+        <!-- original set -->
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#180d22;">M</div>
+            <div class="testi-info">
+              <div class="testi-name">Marcus Weil</div>
+              <div class="testi-role">CEO, Bravado Studio</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">We launched in record time. Clean code, sharp design, and outstanding communication throughout the entire project from start to finish.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0a1a14;">L</div>
+            <div class="testi-info">
+              <div class="testi-name">Layla Hassan</div>
+              <div class="testi-role">Founder, Bloom Digital</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Incredible attention to detail. Every pixel felt intentional. Our bounce rate dropped significantly in the very first month after launch.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#18100a;">T</div>
+            <div class="testi-info">
+              <div class="testi-name">Tom Eriksson</div>
+              <div class="testi-role">Co-founder, Nordsign</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Best investment we made this year. The new website has directly contributed to three major new client wins. Highly recommend these guys.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#140e1c;">N</div>
+            <div class="testi-info">
+              <div class="testi-name">Neha Kapoor</div>
+              <div class="testi-role">Director, IndiGrowth</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Exceeded every single expectation. Fast turnaround, responsive team, and a final result that genuinely impressed all our stakeholders.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0a1420;">J</div>
+            <div class="testi-info">
+              <div class="testi-name">James O'Connor</div>
+              <div class="testi-role">Founder, Tremik</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Professional, fast, and exactly what we needed to scale our agency online. The result speaks for itself — our leads doubled within weeks.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#1c110a;">F</div>
+            <div class="testi-info">
+              <div class="testi-name">Fatima Al-Rawi</div>
+              <div class="testi-role">Head of Ops, Zeno Agency</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Professional from start to finish. They understood our brand voice immediately and delivered a site we are truly proud to share with clients.</p>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#180d22;">M</div>
+            <div class="testi-info">
+              <div class="testi-name">Marcus Weil</div>
+              <div class="testi-role">CEO, Bravado Studio</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">We launched in record time. Clean code, sharp design, and outstanding communication throughout the entire project from start to finish.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0a1a14;">L</div>
+            <div class="testi-info">
+              <div class="testi-name">Layla Hassan</div>
+              <div class="testi-role">Founder, Bloom Digital</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Incredible attention to detail. Every pixel felt intentional. Our bounce rate dropped significantly in the very first month after launch.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#18100a;">T</div>
+            <div class="testi-info">
+              <div class="testi-name">Tom Eriksson</div>
+              <div class="testi-role">Co-founder, Nordsign</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Best investment we made this year. The new website has directly contributed to three major new client wins. Highly recommend these guys.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#140e1c;">N</div>
+            <div class="testi-info">
+              <div class="testi-name">Neha Kapoor</div>
+              <div class="testi-role">Director, IndiGrowth</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Exceeded every single expectation. Fast turnaround, responsive team, and a final result that genuinely impressed all our stakeholders.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#0a1420;">J</div>
+            <div class="testi-info">
+              <div class="testi-name">James O'Connor</div>
+              <div class="testi-role">Founder, Tremik</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Professional, fast, and exactly what we needed to scale our agency online. The result speaks for itself — our leads doubled within weeks.</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-top">
+            <div class="testi-avatar" style="background:#1c110a;">F</div>
+            <div class="testi-info">
+              <div class="testi-name">Fatima Al-Rawi</div>
+              <div class="testi-role">Head of Ops, Zeno Agency</div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <p class="testi-text">Professional from start to finish. They understood our brand voice immediately and delivered a site we are truly proud to share with clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FAQ ════ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <span class="faq-eyebrow">FAQ</span>
+      <h2 class="faq-title">Questions , answered.</h2>
+      <div class="faq-grid">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What services do you offer?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>We offer custom website development, responsive design, e-commerce solutions, SEO & performance optimisation, branding & UI/UX consulting, and ongoing maintenance & support.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How long does a website take?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>A standard site takes 2–4 weeks. Complex projects with custom features or e-commerce can take 6–10 weeks. We always give you a clear timeline upfront.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do you work with small businesses?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Absolutely. Many of our clients are small businesses and solo founders. We have starter packages specifically designed to give small businesses a professional online presence on a budget.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What if I don't love the designs?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>No problem. Every package includes revision rounds so we can refine until it's exactly right. We share designs for approval before any code is written.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do you provide ongoing support?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Yes. All packages include post-launch support. We also offer monthly maintenance retainers for security updates, backups, content edits, and performance monitoring.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I customise a package?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Of course. Our packages are starting points. We can add or remove features to match your exact needs and budget. Just book a call and we'll put together a custom quote.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I see your portfolio before committing?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Yes — we're happy to share case studies and live examples during your discovery call. Just book a free session and we'll walk you through our previous work.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How do I get started?
+            <span class="faq-chevron"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-a"><p>Simply click "Book a call" anywhere on this page. We'll schedule a free 30-minute discovery call to understand your goals and recommend the best path forward.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CALENDAR CTA ════ -->
+  <section class="cal-section">
+    <div class="cal-inner">
+      <div class="cta-222">
+        <h2 class="cal-title">Ready to stop leaving money on the table?</h2>
+      <p class="cal-sub">Let's see how we can fix the issues that are holding you back from driving more revenue today!</p>
+      <div class="cal-btn-wrap">
+        <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank" style="
+     text-decoration: none;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     background: #16a73a;
+     color: rgb(251, 251, 251);
+     padding: 10px 16px;
+     border-radius: 6px;
+     font-family: Arial, sans-serif;
+     font-size: 14px;
+   ">
+  
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </svg>
+
+  Book a Free Call
+</a>
+
+      </div>
+      </div>
+
+      <!-- Calendar widget -->
+     
+
+<!-- CAL.COM EMBED -->
+<!-- Cal inline embed code begins -->
+<div class="cal-4040" style="margin-top: 60px; width:100%;height:100%;overflow:scroll" id="my-cal-inline-30min"></div>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "30min", {origin:"https://app.cal.com"});
+
+  Cal.ns["30min"]("inline", {
+    elementOrSelector:"#my-cal-inline-30min",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+    calLink: "akash-j/30min",
+  });
+
+  Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#2ac050"},"dark":{"cal-brand":"#2ac050"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal inline embed code ends -->
+</script>
+    </div>
+  </section>
+
+  <script>
+    /* ── Pricing toggle ── */
+    const retainerPrices = {
+      starter: { price: '₹2,499', note: 'per month' },
+      growth:  { price: '₹7,499', note: 'per month' },
+      enterprise: { price: 'Custom', note: 'Tailored retainer' }
+    };
+    const onetimePrices = {
+      starter: { price: '₹4,999', note: 'One-time payment' },
+      growth:  { price: '₹14,999', note: 'One-time payment' },
+      enterprise: { price: 'Custom', note: 'Tailored to your project' }
+    };
+
+    function setPricing(type, btn) {
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const prices = type === 'retainer' ? retainerPrices : onetimePrices;
+      const cards = document.querySelectorAll('.price-card');
+      const keys = ['starter','growth','enterprise'];
+      cards.forEach((card, i) => {
+        const amountEl = card.querySelector('.price-amount, .price-custom');
+        const noteEl = card.querySelector('.price-note');
+        if (amountEl && noteEl) {
+          const d = prices[keys[i]];
+          if (d.price === 'Custom') {
+            amountEl.className = 'price-custom'; amountEl.textContent = 'Custom';
+          } else {
+            amountEl.className = 'price-amount';
+            amountEl.innerHTML = `<span>₹</span>${d.price.replace('₹','')}`;
+          }
+          noteEl.textContent = d.note;
+        }
+      });
+    }
+
+    /* ── FAQ toggle ── */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+
+  </script>
+  <!-- ════ FOOTER ════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand-row">
+            <div class="footer-logo-box">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+                <rect x="9" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+                <rect x="2" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+                <rect x="9" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+              </svg>
+            </div>
+            <span class="footer-brand-name">We Build Websites</span>
+          </div>
+          <p class="footer-desc">High-converting websites designed to turn visitors into paying customers. Built for founders who want real results.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/designedbyakashh/" class="footer-social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#">Custom Development</a></li>
+            <li><a href="#">Responsive Design</a></li>
+            <li><a href="#">E-Commerce</a></li>
+            <li><a href="#">SEO & Performance</a></li>
+            <li><a href="#">Branding & UI/UX</a></li>
+            <li><a href="#">Maintenance</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+           
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#web-design-services">Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <div class="footer-col-title">Get in Touch</div>
+          <ul class="footer-links">
+            <li><a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25" target="_blank">Book a Free Call</a></li>
+            <li><a href="mailto:jakash1717@gmail.com">jakash1717@gmail.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 We Build Websites. All rights reserved.</p>
+        <span class="footer-live">
+          <span class="footer-live-dot"></span>
+          Available for new projects
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
