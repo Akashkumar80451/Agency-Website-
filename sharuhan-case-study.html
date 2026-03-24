@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sharuhan Wedding Planner — Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&family=Sora:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2ac050;
+      --bg: #0a0a0a;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e8e8;
+      --muted: rgba(255,255,255,0.42);
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.5;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── NAV ── */
+    .nav-wrapper {
+      width: 100%; display: flex; justify-content: center;
+      padding: 20px 16px 0; position: relative; z-index: 10;
+    }
+    nav {
+      display: flex; align-items: center; gap: 20px;
+      background: rgba(16,16,16,0.90);
+      border: 1px solid var(--border);
+      border-radius: 999px; padding: 8px 10px 8px 12px;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      animation: fadeDown 0.6s ease both;
+      width: max-content; max-width: calc(100vw - 32px);
+    }
+    .nav-logo {
+      width: 28px; height: 28px; background: var(--green);
+      border-radius: 8px; display: grid; place-items: center; flex-shrink: 0;
+    }
+    .nav-logo svg { width: 14px; height: 14px; }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 400;
+      transition: color 0.2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--green); color: #000;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13px;
+      border: none; border-radius: 999px; padding: 8px 16px; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap; text-decoration: none; display: inline-block;
+    }
+    .nav-cta:hover { background: #5aff88; transform: scale(1.04); }
+
+    /* ── BACK LINK ── */
+    .back-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 40px 24px 0; position: relative; z-index: 1;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 400;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #fff; }
+    .back-link svg { width: 14px; height: 14px; }
+
+    /* ── HERO ── */
+    .cs-hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 48px 24px 72px; position: relative; z-index: 1;
+    }
+    .cs-eyebrow {
+      display: inline-block; margin-bottom: 20px;
+      font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em;
+      color: var(--green); text-transform: uppercase;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+    .cs-title {
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      font-size: clamp(36px, 6vw, 80px);
+      line-height: 1.06; color: #fff; letter-spacing: -0.02em;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+    .cs-title .green { color: var(--green); }
+    .cs-desc {
+      margin-top: 24px;
+      font-size: clamp(14px, 1.1vw, 17px);
+      color: var(--muted); line-height: 1.75; max-width: 680px; font-weight: 300;
+      animation: fadeUp 0.7s 0.35s ease both;
+    }
+    .cs-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+      margin: 56px 0; animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    /* ── META ── */
+    .cs-meta {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 36px 80px; animation: fadeUp 0.7s 0.45s ease both;
+    }
+    .cs-meta-group { display: flex; flex-direction: column; gap: 28px; }
+    .cs-meta-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.28); text-transform: uppercase; margin-bottom: 7px;
+    }
+    .cs-meta-value { font-weight: 600; font-size: 15px; color: #fff; }
+    .cs-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cs-tag {
+      font-size: 12px; font-weight: 500; padding: 5px 14px;
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04);
+    }
+    .cs-tag-green {
+      background: rgba(42,192,80,0.1); border-color: rgba(42,192,80,0.3); color: #6effa0;
+    }
+    .cs-tag-white {
+      background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.85);
+    }
+    .cs-tag-purple {
+      background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #c4b5fd;
+    }
+
+    /* ── WEBSITE IMAGE ── */
+    .cs-image-section {
+      position: relative; z-index: 1;
+      padding: 0 24px 100px; max-width: 1100px; margin: 0 auto;
+    }
+    .cs-image-eyebrow {
+      font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em;
+      color: var(--green); text-transform: uppercase; display: block; margin-bottom: 28px;
+    }
+    .browser-wrap {
+      background: #111; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .browser-wrap:hover {
+      border-color: rgba(42,192,80,0.2);
+      box-shadow: 0 50px 140px rgba(0,0,0,0.75), 0 0 0 1px rgba(42,192,80,0.08);
+    }
+    .browser-bar {
+      background: #161616; border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .b-dots { display: flex; gap: 6px; }
+    .b-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .b-dot:nth-child(1) { background: #ff5f57; }
+    .b-dot:nth-child(2) { background: #febc2e; }
+    .b-dot:nth-child(3) { background: #28c840; }
+    .b-url {
+      flex: 1; max-width: 340px; margin: 0 auto;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px; padding: 5px 12px; font-size: 12px; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .b-url-dot { width: 7px; height: 7px; border-radius: 50%; background: #28c840; flex-shrink: 0; }
+    .browser-img { width: 100%; display: block; }
+
+    /* ── STATS ── */
+    .cs-stats {
+      position: relative; z-index: 1;
+      background: #0d0d0d;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 72px 24px;
+    }
+    .cs-stats-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 40px;
+    }
+    .cs-stat { text-align: center; }
+    .cs-stat-num {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(36px, 4vw, 60px);
+      color: var(--green); line-height: 1; letter-spacing: -1px;
+    }
+    .cs-stat-label { font-size: 12.5px; color: var(--muted); font-weight: 300; margin-top: 8px; }
+
+    /* ── RESULTS ── */
+    .cs-results {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; padding: 100px 24px 110px;
+    }
+    .section-eyebrow {
+      display: inline-block; font-size: 11.5px; font-weight: 600;
+      letter-spacing: 0.14em; color: var(--green); margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(28px, 4vw, 50px); line-height: 1.1; color: #fff; margin-bottom: 56px;
+    }
+    .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .result-card {
+      background: #111; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 32px 28px 30px;
+      transition: border-color 0.3s, transform 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .result-card::before {
+      content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(42,192,80,0.5), transparent);
+      border-radius: 0 0 2px 2px; opacity: 0; transition: opacity 0.3s;
+    }
+    .result-card:hover { border-color: rgba(42,192,80,0.22); transform: translateY(-4px); }
+    .result-card:hover::before { opacity: 1; }
+    .result-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      display: grid; place-items: center; margin-bottom: 22px;
+      color: rgba(255,255,255,0.55);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .result-icon svg { width: 20px; height: 20px; }
+    .result-card:hover .result-icon {
+      background: rgba(42,192,80,0.08); border-color: rgba(42,192,80,0.18); color: var(--green);
+    }
+    .result-title {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 16px; color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .result-desc { font-size: 13.5px; color: var(--muted); line-height: 1.68; font-weight: 300; }
+
+    /* ── CTA ── */
+    .cs-cta {
+      position: relative; z-index: 1; background: #0d0d0d;
+      border-top: 1px solid var(--border); padding: 100px 24px 120px; text-align: center;
+    }
+    .cs-cta-inner {
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 40px;
+      padding: 60px 24px; max-width: 700px; margin: 0 auto;
+    }
+    .cs-cta-title {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(26px,4vw,46px); line-height: 1.1; color: #fff; margin-bottom: 16px;
+    }
+    .cs-cta-sub {
+      font-size: clamp(14px,1.2vw,16px); color: var(--muted); font-weight: 300;
+      line-height: 1.7; max-width: 460px; margin: 0 auto 36px;
+    }
+    .cs-cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: #000;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px;
+      border: none; border-radius: 999px; padding: 14px 30px; cursor: pointer;
+      text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .cs-cta-btn:hover { background: #5aff88; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(42,192,80,0.25); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #080808; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 56px 24px 36px; position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-logo-box {
+      width: 28px; height: 28px; background: var(--green);
+      border-radius: 7px; display: grid; place-items: center;
+    }
+    .footer-logo-box svg { width: 13px; height: 13px; }
+    .footer-brand-name { font-weight: 600; font-size: 14px; color: #fff; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); font-weight: 300; }
+    .footer-back {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-back:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cs-stats-inner { grid-template-columns: repeat(2,1fr); }
+      .results-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 640px) {
+      .cs-meta { grid-template-columns: 1fr; gap: 24px; }
+      .nav-links {  }
+      .results-grid { grid-template-columns: 1fr; }
+      .cs-cta-inner { border-radius: 20px; padding: 40px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+    }
+    @media (max-width: 480px) {
+      .cs-stats-inner { grid-template-columns: repeat(2,1fr); gap: 24px; }
+      .nav-wrapper { padding: 14px 12px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav-wrapper">
+    <nav>
+      <div class="nav-logo">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+          <rect x="9" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+          <rect x="2" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+          <rect x="9" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+        </svg>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sharuhan-case-study.html">Case Studies</a></li>
+      </ul>
+      <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25" target="_blank" class="nav-cta">Book a call</a>
+    </nav>
+  </div>
+
+  <!-- BACK -->
+  <div class="back-wrap">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Back to Case Studies
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="cs-hero">
+    <span class="cs-eyebrow">Case Study</span>
+    <h1 class="cs-title">Sharuhan <br><span class="green">Wedding Planner</span></h1>
+    <p class="cs-desc">Sharuhan approached us because their existing website wasn’t generating enough inquiries for their premium wedding services. We redesigned it with a strong focus on conversion, clear user flow, and luxury positioning—resulting in higher engagement and a noticeable increase in client inquiries.</p>
+    <div class="cs-divider"></div>
+    <div class="cs-meta">
+      <div class="cs-meta-group">
+        <div>
+          <div class="cs-meta-label">Client</div>
+          <div class="cs-meta-value">Sharuhan Wedding Planner</div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Turnaround</div>
+          <div class="cs-meta-value">2 weeks</div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Year</div>
+          <div class="cs-meta-value">2026</div>
+        </div>
+      </div>
+      <div class="cs-meta-group">
+        <div>
+          <div class="cs-meta-label">Stack</div>
+          <div class="cs-tags">
+            <span class="cs-tag">WordPress</span>
+            <span class="cs-tag">Elementor</span>
+            <span class="cs-tag">Figma</span>
+          </div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Industry</div>
+          <div class="cs-tags">
+            <span class="cs-tag cs-tag-white">Wedding Planning</span>
+            <span class="cs-tag cs-tag-white">Events</span>
+          </div>
+        </div>
+        <div>
+          <div class="cs-meta-label">Scope of Work</div>
+          <div class="cs-tags">
+            <span class="cs-tag cs-tag-purple">Web Design</span>
+            <span class="cs-tag cs-tag-green">Development</span>
+            <span class="cs-tag">UI/UX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEBSITE IMAGE -->
+  <div class="cs-image-section">
+    <span class="cs-image-eyebrow">Website Design</span>
+    <div class="browser-wrap">
+      <div class="browser-bar">
+        <div class="b-dots">
+          <div class="b-dot"></div>
+          <div class="b-dot"></div>
+          <div class="b-dot"></div>
+        </div>
+        <div class="b-url">
+          <span class="b-url-dot"></span>
+          www.sharuhanweddingplanner.com
+        </div>
+      </div>
+      <img class="browser-img" src="Desktop - 2 (1).png" alt="Sharuhan Wedding Planner — Full Website Design"/>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="cs-stats">
+    <div class="cs-stats-inner">
+      <div class="cs-stat">
+        <div class="cs-stat-num">3×</div>
+        <div class="cs-stat-label">More Enquiries</div>
+      </div>
+      <div class="cs-stat">
+        <div class="cs-stat-num">2wk</div>
+        <div class="cs-stat-label">Delivery Time</div>
+      </div>
+      <div class="cs-stat">
+        <div class="cs-stat-num">98</div>
+        <div class="cs-stat-label">PageSpeed Score</div>
+      </div>
+      <div class="cs-stat">
+        <div class="cs-stat-num">100%</div>
+        <div class="cs-stat-label">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="cs-results">
+    <span class="section-eyebrow">WHAT WE DELIVERED</span>
+    <h2 class="section-title">A website as beautiful<br>as the moments they create.</h2>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="result-title">Premium Visual Design</div>
+        <div class="result-desc">Crafted a warm, luxurious aesthetic using rich event photography, soft greens, and elegant typography that builds instant trust.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="result-title">Fully Responsive</div>
+        <div class="result-desc">Pixel-perfect on every device. Couples browsing on mobile get the same stunning experience as on desktop — no compromises.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="result-title">SEO & Performance</div>
+        <div class="result-desc">Optimised for local search with fast load times and keyword-rich content so couples in the region find Sharuhan first.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="result-title">Conversion-Focused Layout</div>
+        <div class="result-desc">Strategic placement of enquiry forms, testimonials, and service showcases guides visitors naturally toward booking a consultation.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="result-title">Gallery & Portfolio</div>
+        <div class="result-desc">Beautiful grid showcasing real event photography — weddings, decor, venues — turning visitors into believers before they enquire.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="result-title">Ongoing Support</div>
+        <div class="result-desc">Post-launch maintenance, content updates, and performance monitoring ensure the site stays fast, secure, and always up to date.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cal-section">
+    <div class="cal-inner">
+      <div class="cta-222">
+        <h2 class="cal-title">Ready to stop leaving money on the table?</h2>
+      <p class="cal-sub">Let's see how we can fix the issues that are holding you back from driving more revenue today!</p>
+      <div class="cal-btn-wrap">
+        <a href="https://cal.com/akash-j/30min?overlayCalendar=true&date=2026-03-25"
+   target="_blank" style="
+     text-decoration: none;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     background: #16a73a;
+     color: rgb(251, 251, 251);
+     padding: 10px 16px;
+     border-radius: 6px;
+     font-family: Arial, sans-serif;
+     font-size: 14px;
+   ">
+  
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </svg>
+
+  Book a Free Call
+</a>
+
+      </div>
+      </div>
+
+      <!-- Calendar widget -->
+     
+
+<!-- CAL.COM EMBED -->
+<!-- Cal inline embed code begins -->
+<div class="cal-4040" style="margin-top: 60px; width:100%;height:100%;overflow:scroll" id="my-cal-inline-30min"></div>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "30min", {origin:"https://app.cal.com"});
+
+  Cal.ns["30min"]("inline", {
+    elementOrSelector:"#my-cal-inline-30min",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+    calLink: "akash-j/30min",
+  });
+
+  Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#2ac050"},"dark":{"cal-brand":"#2ac050"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal inline embed code ends -->
+</script>
+    </div>
+  </section>
+<style>
+
+    /* ════════════════════════════════
+       CALENDAR CTA
+    ════════════════════════════════ */
+    .cal-section { padding: 100px 24px 120px; background: #0d0d0d; position: relative; z-index: 1; }
+    .cal-inner { max-width: 1200px; margin: 0 auto; text-align: center;  }
+    .cta-222{
+      border: 1px solid rgb(67, 67, 67);
+      padding-top:60px ;
+      border-radius: 60px;
+     
+    }
+    .cal-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(26px, 4vw, 48px); line-height: 1.1; color: #fff; margin-bottom: 16px;margin-top: 30px; }
+    .cal-sub { font-size: clamp(14px, 1.5vw, 17px); color: #ffffff6B; line-height: 1.7; max-width: 520px; margin: 0 auto 36px; font-weight: 300; }
+    .cal-btn-wrap { margin-bottom: 60px; }
+    .cal-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green); color: #000;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px;
+      border: none; border-radius: 999px; padding: 14px 30px; cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(59,255,108,0);
+    }
+    .cal-btn:hover { background: #148735; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(59,255,108,0.25); }
+
+    /* calendar widget mockup */
+    
+
+    @media (max-width: 860px) {
+      .cal-widget { grid-template-columns: 1fr; }
+      .cal-profile { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .cal-calendar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    }
+    @media (max-width: 520px) {
+      .cal-section { padding: 72px 16px 80px; }
+      .cta-222{
+      border: 1px solid rgb(67, 67, 67);
+      padding:40px 14px 0px 14px ;
+      border-radius: 20px;
+      
+    }
+   
+    .cal-section { padding: 20px 14px 20px; background: #0d0d0d; position: relative; z-index: 1; }
+    }
+    @media (max-width: 370px){
+      .cal-inline-container{
+        margin-top: 0px;
+      }
+    }
+</style>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-box">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+            <rect x="9" y="2" width="5" height="5" rx="1.5" fill="#000"/>
+            <rect x="2" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+            <rect x="9" y="9" width="5" height="5" rx="1.5" fill="#000"/>
+          </svg>
+        </div>
+        <span class="footer-brand-name">We Build Websites</span>
+      </div>
+      <p class="footer-copy">© 2026 We Build Websites. All rights reserved.</p>
+      <a href="#" class="footer-back">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 3L5 8l5 5"/>
+        </svg>
+        Back to Case Studies
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.result-card, .cs-stat').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.55s ${i * 0.07}s ease, transform 0.55s ${i * 0.07}s ease`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
